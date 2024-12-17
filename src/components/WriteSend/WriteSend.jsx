@@ -90,7 +90,7 @@ const WriteSend = () => {
       <div className="write-send-form">
         <input
           type="text"
-          placeholder="Enter 5-digit Technique IDs"
+          placeholder="Enter your 3-digit Code (1-7)"
           maxLength="3"
           value={techniqueIds}
           onChange={(e) => setTechniqueIds(e.target.value)}

@@ -68,7 +68,7 @@ const SolveReceive = () => {
       <div className="solve-receive-form">
         <input
           type="text"
-          placeholder="Enter 5-digit Technique IDs"
+          placeholder="Enter Code from your Gmail"
           maxLength="3"
           value={techniqueIds}
           onChange={(e) => setTechniqueIds(e.target.value)}
