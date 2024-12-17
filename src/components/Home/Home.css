@@ -1,0 +1,87 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.home-user-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.home-user-name input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.home-user-name input::placeholder {
+  color: #aaaaaa;
+}
+
+.home-user-name input:focus {
+  outline: none;
+  border-color: #6200ea;
+  box-shadow: 0 0 10px rgba(98, 0, 234, 0.5);
+}
+
+.home-user-name button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6200ea;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-user-name button:hover {
+  background-color: #3700b3;
+}
+
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-actions a {
+  text-decoration: none;
+}
+
+.home-actions button {
+  width: 200px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #03dac6;
+  color: #000000;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-actions button:hover {
+  background-color: #018786;
+  transform: scale(1.05);
+}
+
+.home-actions button:active {
+  background-color: #03dac6;
+  transform: scale(0.95);
+}
