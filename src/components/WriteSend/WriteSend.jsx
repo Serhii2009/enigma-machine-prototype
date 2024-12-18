@@ -100,20 +100,21 @@ const WriteSend = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
+        <div className="cipher-result">
+          <div className="cipher-text-box">
+            <p>{cipherText}</p>
+          </div>
+        </div>
+
         <input
           type="email"
           placeholder="Recipient's Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <div className="cipher-result">
-          <div className="cipher-text-box">
-            <p>{cipherText}</p>
-          </div>
-        </div>
-        <button onClick={handleSendEmail}>Send Encrypted Message</button>
+        <button onClick={handleSendEmail}>Send</button>
         <Link to="/">
-          <button className="back-button">Back to Home</button>
+          <button className="back-button">Back</button>
         </Link>
       </div>
     </div>

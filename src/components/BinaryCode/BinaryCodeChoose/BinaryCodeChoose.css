@@ -1,4 +1,4 @@
-.home-container {
+.choose-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,17 +9,7 @@
   gap: 20px;
 }
 
-.home-container h2 {
-  padding-bottom: 30px;
-  font-family: 'Special Elite', serif;
-  letter-spacing: 0.5cap;
-}
-
-.home-container a {
-  text-decoration: none;
-}
-
-.home-container button {
+.choose-container button {
   width: 200px;
   padding: 15px;
   border: none;
@@ -32,12 +22,12 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.home-container button:hover {
+.choose-container button:hover {
   background-color: #018786;
   transform: scale(1.05);
 }
 
-.home-container button:active {
+.choose-container button:active {
   background-color: #03dac6;
   transform: scale(0.95);
 }
