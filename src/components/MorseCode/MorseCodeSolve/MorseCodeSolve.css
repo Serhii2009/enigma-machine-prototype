@@ -1,0 +1,95 @@
+.morse-solve-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.morse-solve-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.morse-solve-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+  max-width: 300px;
+}
+
+.morse-solve-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 40px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+  max-width: 300px;
+}
+
+d-form input::placeholder,
+.morse-solve-container textarea::placeholder {
+  color: #aaaaaa;
+  max-width: 300px;
+}
+
+.morse-solve-container button {
+  width: 300px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6200ea;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 300px;
+}
+
+.morse-solve-container button:hover {
+  background-color: #3700b3;
+}
+
+.decoded-result {
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.decoded-result {
+  background-color: #2f2f2f;
+  padding: 15px;
+  border-radius: 5px;
+  width: 100%;
+  color: #ffffff;
+  word-wrap: break-word;
+  font-size: 18px;
+  text-align: center;
+}
+
+.decoded-result p {
+  background-color: #2f2f2f;
+}
+
+.morse-back-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6200ea;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.morse-back-button:hover {
+  background-color: #3700b3;
+}

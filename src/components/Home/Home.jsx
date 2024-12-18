@@ -8,7 +8,7 @@ const Home = () => {
       <Link to="/binary-choose">
         <button>Binary code</button>
       </Link>
-      <Link to="/choosepage">
+      <Link to="/morse-choose">
         <button>Morse code</button>
       </Link>
       <Link to="/choosepage">

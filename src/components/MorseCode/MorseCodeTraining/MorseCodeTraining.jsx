@@ -1,18 +1,58 @@
 import { useState, useEffect } from 'react'
-import './BinaryCodeTraining.css'
+import './MorseCodeTraining.css'
 import { Link } from 'react-router-dom'
 import wordsData from '../../../words.json'
 
-const BinaryCodeTraining = () => {
-  const [binaryWord, setBinaryWord] = useState('')
+const MorseCodeTraining = () => {
+  const [morseWord, setMorseWord] = useState('')
   const [decodedWord, setDecodedWord] = useState('')
   const [score, setScore] = useState(0)
   const [timer, setTimer] = useState(120)
   const [wordCount, setWordCount] = useState(0)
   const [resultVisible, setResultVisible] = useState(false)
-  const [showHelp, setShowHelp] = useState(false) // Додано стан для відображення таблиці
+  const [showHelp, setShowHelp] = useState(false)
+  const [totalTimeTimer, setTotalTimeTimer] = useState(0) // Таймер для обліку часу
+  const [isTimerRunning, setIsTimerRunning] = useState(true) // Стан для керування секундомером
 
-  // Генерація випадкового слова з JSON
+  const morseAlphabet = {
+    a: '.-',
+    b: '-...',
+    c: '-.-.',
+    d: '-..',
+    e: '.',
+    f: '..-.',
+    g: '--.',
+    h: '....',
+    i: '..',
+    j: '.---',
+    k: '-.-',
+    l: '.-..',
+    m: '--',
+    n: '-.',
+    o: '---',
+    p: '.--.',
+    q: '--.-',
+    r: '.-.',
+    s: '...',
+    t: '-',
+    u: '..-',
+    v: '...-',
+    w: '.--',
+    x: '-..-',
+    y: '-.--',
+    z: '--..',
+    0: '-----',
+    1: '.----',
+    2: '..---',
+    3: '...--',
+    4: '....-',
+    5: '.....',
+    6: '-....',
+    7: '--...',
+    8: '---..',
+    9: '----.',
+  }
+
   const generateRandomWord = () => {
     const categories = Object.keys(wordsData)
     const randomCategory =
@@ -21,69 +61,72 @@ const BinaryCodeTraining = () => {
     return wordList[Math.floor(Math.random() * wordList.length)]
   }
 
-  // Генерація бінарного слова
-  const generateBinaryWord = () => {
+  const generateMorseWord = () => {
     const word = generateRandomWord()
     return word
       .split('')
-      .map((char) => char.charCodeAt(0).toString(2).padStart(8, '0'))
+      .map((char) => morseAlphabet[char] || '')
       .join(' ')
   }
 
-  // Початок нового раунду
   const startNewRound = () => {
     if (wordCount < 5) {
-      setBinaryWord(generateBinaryWord())
+      setMorseWord(generateMorseWord())
       setDecodedWord('')
     } else {
       setResultVisible(true)
     }
   }
 
-  // Перевірка введеного слова
   const handleSubmit = () => {
     if (decodedWord.trim() === '') {
       alert('Please enter a word!')
       return
     }
 
-    const decodedBinary = binaryWord
+    const decodedMorse = morseWord
       .split(' ')
-      .map((bin) => String.fromCharCode(parseInt(bin, 2)))
+      .map((morse) =>
+        Object.keys(morseAlphabet).find((key) => morseAlphabet[key] === morse)
+      )
       .join('')
 
-    if (decodedWord === decodedBinary) {
+    if (decodedWord === decodedMorse) {
       setScore((prev) => prev + 10)
-      setTimer((prev) => prev + 10)
+      setTimer((prev) => prev + 50)
     }
 
     setWordCount((prev) => prev + 1)
     startNewRound()
   }
 
-  // Логіка таймера
   useEffect(() => {
     if (timer > 0 && wordCount < 5) {
       const interval = setInterval(() => setTimer((prev) => prev - 1), 1000)
       return () => clearInterval(interval)
     } else {
       setResultVisible(true)
+      setIsTimerRunning(false) // Зупиняємо секундомір після завершення тесту
     }
   }, [timer, wordCount])
 
-  // Початок гри при завантаженні
+  // useEffect для роботи секундомера
+  useEffect(() => {
+    if (isTimerRunning) {
+      const interval = setInterval(
+        () => setTotalTimeTimer((prev) => prev + 1),
+        1000
+      )
+      return () => clearInterval(interval)
+    }
+  }, [isTimerRunning]) // Секундомір працює тільки коли isTimerRunning === true
+
   useEffect(() => {
     startNewRound()
   }, [])
 
-  // Алфавіт з бінарним шифруванням
-  const binaryAlphabet = Array.from({ length: 26 }, (_, i) => {
-    const char = String.fromCharCode(97 + i) // a-z
-    return { char, binary: char.charCodeAt(0).toString(2).padStart(8, '0') }
-  })
-
   return (
-    <div className="binary-code-training">
+    <div className="morse-code-training">
       {!resultVisible ? (
         <>
           <div className="header">
@@ -91,8 +134,8 @@ const BinaryCodeTraining = () => {
             <div className="score">Score: {score} / 50</div>
           </div>
           <div className="content">
-            <div className="binary-word">
-              <div className="binary-display">{binaryWord}</div>
+            <div className="morse-word">
+              <div className="morse-display">{morseWord}</div>
             </div>
             <div className="decoded-word">
               <input
@@ -105,7 +148,6 @@ const BinaryCodeTraining = () => {
               Submit
             </button>
           </div>
-          {/* Додано кнопку для відображення таблиці */}
           <div className="help-section">
             <button
               className="help-button"
@@ -117,10 +159,10 @@ const BinaryCodeTraining = () => {
               <div className="help-table">
                 <table>
                   <tbody>
-                    {binaryAlphabet.map(({ char, binary }) => (
+                    {Object.entries(morseAlphabet).map(([char, morse]) => (
                       <tr key={char}>
+                        <td>{morse}</td>
                         <td>{char}</td>
-                        <td>{binary}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -133,15 +175,16 @@ const BinaryCodeTraining = () => {
         <div className="result">
           <h2>Your Result</h2>
           <p>Score: {score} / 50</p>
-          <p>Total Time Taken: {120 - timer}s</p>
+          <p>Total Time Taken: {totalTimeTimer}s</p>{' '}
+          {/* Показує час, який пройшов */}
           <button
             className="restart-button"
             onClick={() => window.location.reload()}
           >
             Restart
           </button>
-          <Link to="/binary-choose">
-            <button className="binary-training-back-button">Back</button>
+          <Link to="/morse-choose">
+            <button className="morse-training-back-button">Back</button>
           </Link>
         </div>
       )}
@@ -149,4 +192,4 @@ const BinaryCodeTraining = () => {
   )
 }
 
-export default BinaryCodeTraining
+export default MorseCodeTraining

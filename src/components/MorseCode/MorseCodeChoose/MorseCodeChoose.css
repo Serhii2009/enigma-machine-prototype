@@ -1,0 +1,33 @@
+.morse-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  gap: 20px;
+}
+
+.morse-container button {
+  width: 200px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #03dac6;
+  color: #000000;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.morse-container button:hover {
+  background-color: #018786;
+  transform: scale(1.05);
+}
+
+.morse-container button:active {
+  background-color: #03dac6;
+  transform: scale(0.95);
+}

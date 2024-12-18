@@ -1,4 +1,4 @@
-.binary-code-training {
+.morse-code-training {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   font-family: 'Arial', sans-serif;
 }
 
-.binary-code-training .header {
+.morse-code-training .header {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -16,12 +16,12 @@
   padding: 10px;
 }
 
-.binary-code-training .timer,
-.binary-code-training .score {
+.morse-code-training .timer,
+.morse-code-training .score {
   font-size: 18px;
 }
 
-.binary-code-training .content {
+.morse-code-training .content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,19 +30,19 @@
   padding: 20px;
 }
 
-.binary-code-training .binary-word,
-.binary-code-training .decoded-word {
+.morse-code-training .morse-word,
+.morse-code-training .decoded-word {
   width: 100%;
   max-width: 500px;
 }
 
-.binary-code-training .binary-word label,
-.binary-code-training .decoded-word label {
+.morse-code-training .morse-word label,
+.morse-code-training .decoded-word label {
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.binary-code-training .binary-display {
+.morse-code-training .morse-display {
   background-color: #2f2f2f;
   color: #ffffff;
   padding: 10px;
@@ -51,7 +51,7 @@
   word-wrap: break-word;
 }
 
-.binary-code-training input {
+.morse-code-training input {
   width: 100%;
   padding: 10px;
   border: 2px solid #ffffff;
@@ -61,11 +61,11 @@
   max-width: 500px;
 }
 
-.binary-code-training input::placeholder {
+.morse-code-training input::placeholder {
   color: #aaaaaa;
 }
 
-.binary-code-training button {
+.morse-code-training button {
   width: 100%;
   max-width: 100px;
   padding: 12px;
@@ -78,32 +78,32 @@
   transition: background-color 0.3s ease;
 }
 
-.binary-code-training button:hover {
+.morse-code-training button:hover {
   background-color: #3700b3;
 }
 
-.binary-code-training .result {
+.morse-code-training .result {
   padding: 20px;
   border-radius: 5px;
   color: #ffffff;
   text-align: center;
 }
 
-.binary-code-training .result h2 {
+.morse-code-training .result h2 {
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-.binary-code-training .result p {
+.morse-code-training .result p {
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-.binary-training-back-button {
+.morse-training-back-button {
   margin-top: 15px;
 }
 
-.binary-code-training .restart-button {
+.morse-code-training .restart-button {
   width: 100%;
   max-width: 300px;
   padding: 12px;
@@ -116,7 +116,7 @@
   transition: background-color 0.3s ease;
 }
 
-.binary-code-training .restart-button:hover {
+.morse-code-training .restart-button:hover {
   background-color: #3700b3;
 }
 
@@ -145,7 +145,7 @@
 .help-table {
   position: fixed;
   top: 80px;
-  right: 100px;
+  right: 122px;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
