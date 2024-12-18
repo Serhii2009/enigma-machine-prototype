@@ -119,8 +119,8 @@ const BinaryCodeTraining = () => {
                   <tbody>
                     {binaryAlphabet.map(({ char, binary }) => (
                       <tr key={char}>
-                        <td>{char}</td>
                         <td>{binary}</td>
+                        <td>{char}</td>
                       </tr>
                     ))}
                   </tbody>

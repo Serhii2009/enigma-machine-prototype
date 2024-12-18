@@ -124,7 +124,7 @@
 .help-button {
   position: fixed;
   top: 20px;
-  right: 130px;
+  right: 20px;
   width: 50px;
   height: 50px;
   border: none;
@@ -145,12 +145,12 @@
 .help-table {
   position: fixed;
   top: 80px;
-  right: 100px;
+  right: 10px;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
-  max-height: 300px;
+  max-height: 150px;
   overflow-y: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 10;
@@ -165,10 +165,21 @@
 .help-table td {
   padding: 10px;
   text-align: left;
-  border: 1px solid #ddd; /* Додано межі між комірками */
+  border: 1px solid #ddd;
 }
 
 .help-table th {
   background-color: #f4f4f4;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 1440px) {
+  .help-button {
+    right: 130px;
+  }
+
+  .help-table {
+    right: 100px;
+    max-height: 500px;
+  }
 }
