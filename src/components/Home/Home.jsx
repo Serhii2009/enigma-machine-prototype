@@ -11,8 +11,8 @@ const Home = () => {
       <Link to="/morse-choose">
         <button>Morse code</button>
       </Link>
-      <Link to="/choosepage">
-        <button>Custom code</button>
+      <Link to="/montecarlopage">
+        <button>Monte Carlo Prediction</button>
       </Link>
     </div>
   )
